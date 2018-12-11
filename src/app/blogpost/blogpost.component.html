@@ -1,0 +1,16 @@
+<mat-card *ngIf="(blogpost$ | async) as bp; else loading">
+  <mat-card-header  class="no-margin">
+    <mat-card-title>{{ bp.title }}</mat-card-title>
+    <mat-card-subtitle>{{ bp.subTitle }}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image src={{bp.image}} alt={{bp.title}}>
+    <mat-card-content>
+      <p>
+        {{bp.content}}
+      </p>
+    </mat-card-content>
+</mat-card>
+
+<ng-template #loading>
+  loading...
+</ng-template>
