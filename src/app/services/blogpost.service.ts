@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { Blogpost } from '../models/blogpost';
@@ -16,7 +16,16 @@ export class BlogpostService {
     return this.httpClient.get<Blogpost[]>(`${this.baseUrl}/`);
   }
 
-  getBlogPostById(id): Observable<Blogpost> {
+  getBlogPostById(id: string): Observable<Blogpost> {
     return this.httpClient.get<Blogpost>(`${this.baseUrl}/${id}`);
+  }
+
+  deleteSingleBlogpost(id: string) {
+    return this.httpClient.delete(`${this.baseUrl}/${id}`)
+  }
+
+  deleteBlogposts(ids: string[]) {
+    const allIds = ids.join(',');
+    return this.httpClient.delete(`${this.baseUrl}/?ids=${allIds}`);
   }
 }
