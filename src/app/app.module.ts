@@ -9,13 +9,15 @@ import { BlogpostListComponent } from './blogpost-list/blogpost-list.component';
 import { MaterialModule } from './material.module';
 import { BlogpostComponent } from './blogpost/blogpost.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BlogpostListComponent,
     BlogpostComponent,
-    ErrorPageComponent
+    ErrorPageComponent,
+    AdminComponent
   ],
   imports: [
   BrowserModule,
