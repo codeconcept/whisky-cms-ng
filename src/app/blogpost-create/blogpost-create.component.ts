@@ -9,7 +9,8 @@ import { BlogpostService } from '../services/blogpost.service';
   styleUrls: ['./blogpost-create.component.css']
 })
 export class BlogpostCreateComponent implements OnInit {
-  creationForm: FormGroup;
+  creationForm: FormGroup;  
+
   constructor(private fb: FormBuilder, private blogpostService: BlogpostService) { }
 
   ngOnInit() {
@@ -34,13 +35,14 @@ export class BlogpostCreateComponent implements OnInit {
   }
 
   handleSuccess(data, formDirective) {
-    console.log('OK blog post created', data);
+    console.log('OK handleSuccess - blog post created', data);
     this.creationForm.reset();
     formDirective.resetForm();
+    this.blogpostService.dispatchBlogpostCreated(data._id);
   }
   
   handleError(error) {
-    console.log('KO blog post NOT created', error);
+    console.log('KO handleError - blog post NOT created', error);
   }
 
 }
