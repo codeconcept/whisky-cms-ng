@@ -12,6 +12,10 @@ export class BlogpostService {
 
   constructor(private httpClient: HttpClient) { }
 
+  createBlogpost(post: Blogpost) {
+    return this.httpClient.post<Blogpost>(this.baseUrl, post)
+  }
+
   getBlogposts(): Observable<Blogpost[]> {
     return this.httpClient.get<Blogpost[]>(`${this.baseUrl}/`);
   }
