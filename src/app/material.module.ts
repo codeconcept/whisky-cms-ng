@@ -5,6 +5,8 @@ import {MatCardModule} from '@angular/material/card';
 import {MatListModule} from '@angular/material/list';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDividerModule} from '@angular/material/divider';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material';
 
 @NgModule({
   declarations: [],
@@ -14,14 +16,18 @@ import {MatDividerModule} from '@angular/material/divider';
     MatCardModule,
     MatListModule,
     MatButtonModule,
-    MatDividerModule
+    MatDividerModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   exports: [
     MatToolbarModule,
     MatCardModule,
     MatListModule,
     MatButtonModule,
-    MatDividerModule
+    MatDividerModule,
+    MatFormFieldModule,
+    MatInputModule
   ]
 })
 export class MaterialModule { }
