@@ -8,6 +8,9 @@
 <mat-divider></mat-divider>
 <mat-card>
   <mat-card-actions>
-    <button mat-button (click)="deleteBlogposts(blogposts.selectedOptions.selected)">DELETE</button>
+    <button mat-button 
+      (click)="deleteBlogposts(blogposts.selectedOptions.selected)"
+      *ngIf="blogposts.selectedOptions.selected.length > 0"
+      >DELETE</button>
   </mat-card-actions>
 </mat-card>
