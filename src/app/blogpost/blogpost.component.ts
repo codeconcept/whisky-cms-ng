@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Blogpost } from '../models/blogpost';
 import { BlogpostService } from './../services/blogpost.service';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-blogpost',
@@ -12,6 +13,7 @@ import { Observable } from 'rxjs';
 export class BlogpostComponent implements OnInit {
   blogpost: Blogpost;
   blogpost$: Observable<Blogpost>;
+  imagePath = environment.imagePath;
 
   constructor(private activatedRoute: ActivatedRoute, private blogpostService: BlogpostService) { }
 

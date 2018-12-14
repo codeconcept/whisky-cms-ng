@@ -10,6 +10,7 @@ import { Blogpost } from '../models/blogpost';
 })
 export class BlogpostListComponent implements OnInit {
   blogPostList$: Observable<Blogpost[]>;
+  imagesFolder = 'http://localhost:3000/';
 
   constructor(private blogpostService: BlogpostService) { }
 

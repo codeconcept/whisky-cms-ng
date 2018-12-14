@@ -3,7 +3,7 @@
     <mat-card-title>{{ bp.title }}</mat-card-title>
     <mat-card-subtitle>{{ bp.subTitle }}</mat-card-subtitle>
   </mat-card-header>
-  <img mat-card-image src={{bp.image}} alt={{bp.title}}>
+  <img mat-card-image [src]="imagePath + bp.image" alt={{bp.title}}>
     <mat-card-content>
       <p>
         {{bp.content}}

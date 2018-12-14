@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
 
 import { Blogpost } from '../models/blogpost';
@@ -10,11 +10,16 @@ import { Blogpost } from '../models/blogpost';
 export class BlogpostService {
   baseUrl = 'http://localhost:3000/api/v1/blog-posts';
   private blogpostCreated = new Subject<string>();
+  uploadedImage = '';
 
   constructor(private httpClient: HttpClient) { }
 
   createBlogpost(post: Blogpost) {
     return this.httpClient.post<Blogpost>(this.baseUrl, post);
+  }
+
+  uploadImage(formData: FormData) {
+    return this.httpClient.post<any>(`${this.baseUrl}/images`, formData);
   }
 
   dispatchBlogpostCreated(id: string) {
