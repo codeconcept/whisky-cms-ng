@@ -38,6 +38,10 @@ export class BlogpostService {
     return this.httpClient.get<Blogpost>(`${this.baseUrl}/${id}`);
   }
 
+  updateBlogpost(id: string, blogpost: Blogpost) {
+    return this.httpClient.put(`${this.baseUrl}/${id}`, blogpost);
+  }
+
   deleteSingleBlogpost(id: string) {
     return this.httpClient.delete(`${this.baseUrl}/${id}`)
   }
