@@ -1,6 +1,7 @@
 .example-card {
   padding-bottom: 100px;
   border-radius: 0px;
+  max-width: 750px;
 }
 
 mat-card img {

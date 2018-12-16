@@ -10,6 +10,7 @@ import { BlogpostService } from '../services/blogpost.service';
 })
 export class BlogpostCreateComponent implements OnInit {
   creationForm: FormGroup;  
+  // htmlContent = '';
 
   constructor(private fb: FormBuilder, private blogpostService: BlogpostService, private el: ElementRef) { }
 

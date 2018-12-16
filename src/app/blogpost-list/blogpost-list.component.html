@@ -5,8 +5,7 @@
     </mat-card-header>
     <img [src]="imagesFolder + bp.smallImage" alt={{bp.title}}>
     <mat-card-content>
-      <p>
-        {{bp.content}}
+      <p [innerHTML]="bp.content">
       </p>
     </mat-card-content>
   </mat-card>

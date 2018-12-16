@@ -6,6 +6,9 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { NgxEditorModule } from 'ngx-editor';
+
 import { BlogpostListComponent } from './blogpost-list/blogpost-list.component';
 import { MaterialModule } from './material.module';
 import { BlogpostComponent } from './blogpost/blogpost.component';
@@ -31,7 +34,8 @@ import { BlogpostEditComponent } from './blogpost-edit/blogpost-edit.component';
     HttpClientModule,
     MaterialModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxEditorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

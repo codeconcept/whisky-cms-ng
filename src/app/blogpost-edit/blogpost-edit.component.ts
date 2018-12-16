@@ -22,17 +22,18 @@ export class BlogpostEditComponent implements OnInit {
     this.blogpostId = this.activatedRoute.snapshot.paramMap.get('id');
     this.blogpostService.getBlogPostById(this.blogpostId)
       .subscribe(data => {
-        this.blogpost = data;
+        this.blogpost = data;;
+        this.createForm();
       }, 
       error => console.error(error));
-    this.createForm();
   }
 
   createForm() {
     this.editForm = this.fb.group({
       title: '',
       subTitle: '',
-      content: '',
+      // because app-ngx-editor does NOT accept a value nor a {{blogpost.content}}
+      content: this.blogpost.content,
       image: ''
     });
   }
