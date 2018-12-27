@@ -12,7 +12,6 @@ import { FormBuilder, FormGroup, FormGroupDirective } from '@angular/forms';
   styleUrls: ['./blogpost-edit.component.css']
 })
 export class BlogpostEditComponent implements OnInit {
-  editForm: FormGroup;  
   blogpostId: string;
   blogpost: Blogpost;
 
@@ -22,20 +21,9 @@ export class BlogpostEditComponent implements OnInit {
     this.blogpostId = this.activatedRoute.snapshot.paramMap.get('id');
     this.blogpostService.getBlogPostById(this.blogpostId)
       .subscribe(data => {
-        this.blogpost = data;;
-        this.createForm();
+        this.blogpost = data;
       }, 
       error => console.error(error));
-  }
-
-  createForm() {
-    this.editForm = this.fb.group({
-      title: '',
-      subTitle: '',
-      // because app-ngx-editor does NOT accept a value nor a {{blogpost.content}}
-      content: this.blogpost.content,
-      image: ''
-    });
   }
 
   upload() {
@@ -52,18 +40,17 @@ export class BlogpostEditComponent implements OnInit {
   }
 
   updateBlogpost(formDirective: FormGroupDirective) {
-    if(this.editForm.valid) {
-      console.log(this.editForm);
-      // this.editForm.controls.image.setValue(this.editForm.controls.image || 'aze');
-      this.blogpostService
-        .updateBlogpost(this.blogpostId, this.editForm.value)
-        .subscribe(data => this.handleSuccess(data, formDirective), error => this.handleError(error));
-    }
+    console.log(this.blogpost);
+    const editedBlogpost = this.blogpost;
+    this.blogpostService
+    .updateBlogpost(this.blogpostId, editedBlogpost)
+    .subscribe(data => this.handleSuccess(data, formDirective), error => this.handleError(error));
+
   }
 
   handleSuccess(data, formDirective) {
     console.log('OK handleSuccess - blog post updated', data);
-    this.editForm.reset();
+    formDirective.reset();
     formDirective.resetForm();
     this.blogpostService.dispatchBlogpostCreated(data._id);
   }
